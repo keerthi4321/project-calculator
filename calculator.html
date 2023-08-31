@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Calculator</title>
+	<style>
+        button{
+        	height:75px;
+        	width:75px;
+        	background-color:lightyellow;
+        	border-radius: 80px;
+        }
+        #result{
+        	height:75px;
+        	width:330px;
+        	background-color: skyblue;
+        	color: black;
+        	margin-top:50px;
+        	border-radius:100px;
+        }
+        button:hover{
+        	background-color:pink;
+        	color:lightgreen;
+        	cursor: pointer;
+        }
+       
+        body{
+        	background-image:url(horse.jpg);
+        	height:100%;
+        	width:100%;
+        }
+    </style>
+</head>
+<body><center>
+	<h1>CALCULATOR</h1>
+	<input type="text" id="result" placeholder="0">
+	<table>
+		<tr>
+			<td><button onclick="display(7)">7</button></td>
+			<td><button onclick="display(8)">8</button></td>
+			<td><button onclick="display(9)">9</button></td>
+			<td><button onclick="display('+')">+</button></td>
+		</tr>
+		<tr>
+			<td><button onclick="display(4)">4</button></td>
+			<td><button onclick="display(5)">5</button></td>
+			<td><button onclick="display(6)">6</button></td>
+			<td><button onclick="display('-')">-</button></td>
+		</tr>
+		<tr>
+			<td><button onclick="display(1)">1</button></td>
+			<td><button onclick="display(2)">2</button></td>
+			<td><button onclick="display(3)">3</button></td>
+			<td><button onclick="display('*')">*</button></td>
+		</tr>
+		<tr>
+			<td><button onclick="display(0)">0</button></td>
+			<td><button onclick="clr('c')">c</button></td>
+		    <td><button onclick="calculate('=')">=</button></td>
+			<td><button onclick="display('/')">/</button></td>
+		</tr>
+	</table>
+</center>
+</body>
+<script>
+	let output=document.getElementById("result");
+	function display(num)
+	{
+		output.value+=num
+	}
+	function calculate(){
+		try{
+			output.value=eval(output.value);
+            }
+		catch(err){
+			alert("Invalid");
+			output.value="";
+		}
+	    }
+	function clr(){
+		output.value="";
+	}
+	</script>
+</html>
